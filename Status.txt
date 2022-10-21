@@ -1,0 +1,10 @@
+CL = NOAH
+
+Frits Lander                                           2022-10-15
+
+CSC 4100  Ethics & Impacts of Computing  Section 01 & 02  FA-2022
+
+ID  Grade  Prj#  Quiz# Attendance
+                   1     1 
+
+Noah 4.0    100    70    92
