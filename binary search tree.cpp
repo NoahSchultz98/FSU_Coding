@@ -25,7 +25,7 @@ struct node {
 };
 
 void printNodes(node* root);
-void insert(node* root, int data);
+node* insert(node* root, int data);
 void find_min(node* root);
 void find_max(node* root);
 
@@ -40,21 +40,7 @@ int main()
    temp->right = nullptr; 
    
    root = temp;
-   /*
-   temp = new node;
-   temp->data = 20;
-   temp->left = nullptr;
-   temp->right = nullptr; 
-   
-   root->left = temp;
-   
-   temp = new node;
-   temp->data = 50;
-   temp->left = nullptr;
-   temp->right = nullptr; 
-   
-   root->right = temp;
-   */
+
    insert(root, 20);
    insert(root, 25);
    insert(root, 50);
@@ -71,6 +57,7 @@ void find_max(node* root)
       return;
    }
    cout << root->data << endl;
+   return;
 }
 
 void find_min(node* root)
@@ -80,6 +67,7 @@ void find_min(node* root)
       return;
    }
    cout << root->data << endl;
+   return;
 }
 
 void printNodes(node* root){
@@ -94,27 +82,27 @@ void printNodes(node* root){
    return;
 }
 
-void insert(node* root, int i)
+node* insert(node* root, int i)
 {
 
    if(root == nullptr){
       cout << "Made a new node with data " << i << endl;
-      root = new node;
-      root->data = i;
-      root->left = nullptr;
-      root->right = nullptr;
-      return;
+      node* temp = new node;
+      temp->data = i;
+      temp->left = nullptr;
+      temp->right = nullptr;
+      return temp;
    }
    
    if(root->data > i){
       cout << "i < data... going left (i = "<<i <<", data = "<< root->data<<")" << endl;
-      insert(root->left, i);
-      return;
-   }
+      root->left = insert(root->left, i);
+      //return;
+   }else{
 
-   cout << "i > data... going right (i = "<<i <<", data = "<< root->data<<")" << endl;
-   insert(root->right, i);
-   
-   return;
+   cout << "i > data... going right (i = "<< i <<", data = "<< root->data<<")" << endl;
+   root->right = insert(root->right, i);
+   }
+   return root;
 }
 
