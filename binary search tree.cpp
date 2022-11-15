@@ -27,6 +27,7 @@ struct node {
 void find_child(node* root, int key);
 void printNodes(node* root);
 node* insert(node* root, int data);
+//void insert(node* root, int i);
 void find_min(node* root);
 void find_max(node* root);
 void post_order(node* root);
@@ -223,6 +224,7 @@ cout << root->data << endl;
    return;
 }
 
+//void insert(node* root, int i)
 node* insert(node* root, int i)
 {
 
